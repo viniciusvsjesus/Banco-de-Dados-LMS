@@ -1,10 +1,12 @@
 create table usuario (	
 	ID int IDENTITY
 	CONSTRAINT pk_usuario primary key(ID),
-	login varchar(25) 
+	login varchar(25),
 	CONSTRAINT login_uq unique not null,
-	senha varchar(20)
+	senha varchar(20),
 	CONSTRAINT senha_ck check (len(senha)>=6) not null,
+	DtExpiracao datetime,
+	CONSTRAINT df_dtExpiracao 
 )
 create table coordenador (	
 	ID int IDENTITY,
